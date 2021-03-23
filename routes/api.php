@@ -22,4 +22,4 @@ Route::middleware('auth:api')->group(function () {
 	Route::resource('product', 'ProductController');
 });
 
-Route::post('/login', 'AuthController@login');
+Route::get('/login', 'AuthController@login')->name('login');
