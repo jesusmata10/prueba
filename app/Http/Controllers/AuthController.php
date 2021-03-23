@@ -66,11 +66,18 @@ class AuthController extends Controller
     {
         $user = User::login($request);
 
-        $token = $user->createToken('token')->accessToken;
+        if(isset($user->id)) {
+            $token = $user->createToken('token')->accessToken;
 
-        return [
-            'status' => 200,
-            'token' => $token
-        ];
+            return [
+                'status' => 200,
+                'token' => $token
+            ];
+        } else {
+            return [
+                'status' => 409,
+                'message' => 'User or password incorrect'
+            ];
+        }
     }
 }

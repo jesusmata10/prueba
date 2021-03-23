@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use Illuminate\Support\facades\Hash;
 
 class User extends Authenticatable
 {
@@ -39,7 +40,11 @@ class User extends Authenticatable
     ];
 
     public static function login($data) {
-        $user = User::where([['email', $data->email], ['password', $data->password]])->first();
-        return $user;
+        $user = User::select('id', 'password')->where('email', $data->email)->first();
+
+        if (Hash::check($data->password, $user->password)) {
+            return $user;
+        }
+        
     }
 }
