@@ -35,7 +35,7 @@ class ProductController extends Controller
             ];
         } catch (QueryException $e) {
             return [
-                'status' => 200,
+                'status' => 409,
                 'descriptiom' => 'No se ha podido guardar el producto',
                 'error' => $e
             ];
@@ -71,7 +71,7 @@ class ProductController extends Controller
             ];
         } catch (QueryException $e) {
             return [
-                'status' => 200,
+                'status' => 409,
                 'descriptiom' => 'No se ha podido actualizar el producto',
                 'error' => $e
             ];
@@ -95,7 +95,7 @@ class ProductController extends Controller
             ];
         } catch (QueryException $e) {
             return [
-                'status' => 200,
+                'status' => 409,
                 'descriptiom' => 'No se ha podido eliminar el producto',
                 'error' => $e
             ];
