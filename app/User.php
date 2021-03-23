@@ -42,7 +42,7 @@ class User extends Authenticatable
     public static function login($data) {
         $user = User::select('id', 'password')->where('email', $data->email)->first();
 
-        if (Hash::check($data->password, $user->password)) {
+        if (isset($user->password) && Hash::check($data->password, $user->password)) {
             return $user;
         }
         
