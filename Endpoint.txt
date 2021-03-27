@@ -1,0 +1,33 @@
+Endpoint
+
+GET - 127.0.0.1:8000/api/product
+
+POST - 127.0.0.1:8000/api/product
+{
+    "codigo": "001",
+    "nombre": "redmi 8",
+    "descripcion": "telefono redmi",
+    "precio": 700,
+    "stock": 15,
+    "imagen": "imagen001.png"
+}
+
+GET - 127.0.0.1:8000/api/product/1
+
+PUT - 127.0.0.1:8000/api/product/1
+{
+    "codigo": "001",
+    "nombre": "redmi 8",
+    "descripcion": "telefono redmi",
+    "precio": 750,
+    "stock": 20,
+    "imagen": "imagen002.png"
+}
+
+DELETE - 127.0.0.1:8000/api/product/1
+
+127.0.0.1:8000/api/login
+{
+    "email": "admin@admin.com",
+    "password": "12345678"
+}
